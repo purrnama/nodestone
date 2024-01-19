@@ -17,7 +17,7 @@ const freeCompanyMemberParser = new FCMembers();
 const characterSearch = new CharacterSearch();
 const freecompanySearch = new FreeCompanySearch();
 
-app.get("/Character/Search", async (req, res) => {
+app.get("api/character/search", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.set;
@@ -32,7 +32,7 @@ app.get("/Character/Search", async (req, res) => {
   }
 });
 
-app.get("/FreeCompany/Search", async (req, res) => {
+app.get("api/freecompany/search", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   if (req.method === "OPTIONS") {
@@ -46,7 +46,7 @@ app.get("/FreeCompany/Search", async (req, res) => {
   }
 });
 
-app.get("/Character/:characterId", async (req, res) => {
+app.get("api/character/:characterId", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   if ((req.query["columns"] as string)?.indexOf("Bio") > -1) {
@@ -84,7 +84,7 @@ app.get("/Character/:characterId", async (req, res) => {
   }
 });
 
-app.get("/FreeCompany/:fcId", async (req, res) => {
+app.get("api/freecompany/:fcId", async (req, res) => {
   res.set("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   if (req.method === "OPTIONS") {
